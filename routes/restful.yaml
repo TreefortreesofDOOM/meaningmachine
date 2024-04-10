@@ -1,0 +1,21 @@
+# Rest post command
+rest_command:
+  door_lock_status:
+    name: "meaning_machine"
+    method: post
+    content_type: "application/json"
+    headers:
+    url: "https://smee.io/KbqpJeISs11DTsDu"
+    payload: '{"command": "{{command}}", "parameter": "{{parameter}}"}'
+
+
+    door_lock_status_meaning_machine
+    http://localhost:3000/webhook
+
+    "entity_id": "lock.front_door",
+            "state": "unlocked",
+            "attributes": {
+                "changed_by": "Mark Dinatale",
+                "battery_level": 99,
+                "friendly_name": "Front Door",
+                "supported_features": 0

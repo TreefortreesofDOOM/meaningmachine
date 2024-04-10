@@ -1,0 +1,25 @@
+{
+  "name": "meaning-machine",
+  "version": "1.0.0",
+  "description": "meaning machine gallery unlocks art",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.6.8",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-async-handler": "^1.2.0",
+    "logger": "^0.0.1",
+    "openai": "^4.0.0",
+    "seam": "^0.50.0",
+    "smee-client": "^2.0.1",
+    "stripe": "^14.23.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
