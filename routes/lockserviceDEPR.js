@@ -6,7 +6,6 @@ const app = express();
 
 app.use(bodyParser.raw({ type: 'application/json' }));
 
-
 async function lockStatus() {
     try {
           //const entityId = ('lock.front_door');
