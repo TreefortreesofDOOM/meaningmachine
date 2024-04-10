@@ -9,7 +9,17 @@ const PORT = config.port || 3000;
 
 app.use(bodyParser.raw({ type: 'application/json' }));
 app.use('/', routes);
+/*
+const SmeeClient = require('smee-client')
 
+const smee = new SmeeClient({
+  source: 'https://smee.io/98zlcGcynFwVKIDC',
+  target: 'http://localhost:4242/webhook',
+  logger: console
+})
+
+const events = smee.start()
+*/
 app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);
 });

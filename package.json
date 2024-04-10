@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^1.6.8",
+    "config": "^3.3.11",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "express-async-handler": "^1.2.0",
@@ -17,7 +18,8 @@
     "openai": "^4.0.0",
     "seam": "^0.50.0",
     "smee-client": "^2.0.1",
-    "stripe": "^14.23.0"
+    "stripe": "^14.23.0",
+    "winston": "^3.13.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.0"
