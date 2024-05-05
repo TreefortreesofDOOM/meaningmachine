@@ -4,7 +4,7 @@
   "description": "meaning machine gallery unlocks art",
   "main": "app.js",
   "scripts": {
-    "start": "npm app.js"
+    "start": "node app.js"
   },
   "author": "",
   "license": "ISC",
