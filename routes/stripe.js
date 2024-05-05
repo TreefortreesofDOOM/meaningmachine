@@ -4,7 +4,7 @@ const axios = require('axios');
 const stripe = require('stripe')('sk_test_51HCA8SDtboUa20CyPC9Go5FhUp6hsQoDQ4oxTRipLpBbyWFES4v0Y5KD11n4jMPdsFF6U0LWTUZIXcWVdscVOO9C008sFZdNpw');
 //const unlocksDoor = require('./routes/homeassistantwebhook');
 const lockStatus = require('./routes/test');
-const { port, stripe_api__test_key, stripe_wh_secret } = require('../config/index');
+const { port, stripe_api_test_key, stripe_secret, stripe_wh_secret } = require('../config/index');
 
 const app = express();
 
@@ -21,7 +21,7 @@ app.post('/webhooks', async (req, res) => {
   let event;
 
   try {
-    event = stripe.webhooks.constructEvent(req.body, sig, stripe_wh_secret);
+    event = stripe.webhooks.constructEvent(req.body, sig, stripe_secret);
     // Handle the checkout.session.completed event
     if (event.type === 'payment_intent.succeeded') {
       const session = event.data.object;

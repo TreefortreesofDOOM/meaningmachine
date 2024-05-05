@@ -14,4 +14,5 @@ module.exports = {
     stripe_wh2_sec: process.env.stripe_wh2_sec,
     servo_id: process.env.servo_id,
     servo_ha_url: process.env.servo_ha_url,
+    stripe_secret: process.env.stripe_secret,
 };
