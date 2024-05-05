@@ -3,14 +3,14 @@ const stripe = require('stripe')(`${config.stripe_api_test_key}`);
 const logger = require('../utils/logger');
 //const { unlocksArt } = require('./artUnlockService');
 const { unlocksDoor, unlocksArt, unlocksWall } = require('./unlockService');
-const stripeSecret = config.stripe_secret;
+const endpointSecret = config.endpointSecret;
 exports.handleStripeWebhook = async (req, res) => {
     const sig = req.headers['stripe-signature'];
 
     let event;
 
     try {
-        event = stripe.webhooks.constructEvent(req.body, sig, stripeSecret);
+        event = stripe.webhooks.constructEvent(req.body, sig, endpointSecret);
         console.log('event:', event);
         if (event.type === 'checkout.session.completed') {
             console.log('checkout seesion completed log client_reference_id', event.data.object.client_reference_id);
