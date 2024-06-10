@@ -6,7 +6,21 @@
     <title>Speak to DALL·E</title>
 </head>
 <body>
-    <button id="speakButton">Speak</button>
-    <script src="app.js"></script>
+    <button id="stripe-account-onboarding">Set-up
+        <div id="stripe-account-onboarding"></div>
+        <script src="https://js.stripe.com/v3/"></script>
+        <script src="../routes/account-onboarding.js"></script>
+    </button>
+
+    <button id="stripe-account-management">Sign In
+        <div id="stripe-account-management"></div>
+        <script src="../routes/account-management.js"></script>
+    </button>
+
+    <div id="stripe-balances"></div>
+    <script src="../routes/balances.js"></script>
+
+    <div id="stripe-payments"></div>
+    <script src="../routes/payments.js"></script>
 </body>
 </html>

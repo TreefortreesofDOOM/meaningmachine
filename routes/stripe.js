@@ -1,10 +1,10 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const axios = require('axios');
-const stripe = require('stripe')('sk_test_51HCA8SDtboUa20CyPC9Go5FhUp6hsQoDQ4oxTRipLpBbyWFES4v0Y5KD11n4jMPdsFF6U0LWTUZIXcWVdscVOO9C008sFZdNpw');
 //const unlocksDoor = require('./routes/homeassistantwebhook');
 const lockStatus = require('./routes/test');
-const { port, stripe_api_test_key, stripe_secret, stripe_wh_secret } = require('../config/index');
+const { port, stripe_api_key, stripe_secret, stripe_wh_secret } = require('../config/index');
+const stripe = require('stripe')(stripe_api_key);
 
 const app = express();
 
