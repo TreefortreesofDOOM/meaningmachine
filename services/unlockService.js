@@ -27,10 +27,14 @@ async function unlockItem(itemType, unlockDetails) {
 
 // Specific function to unlock the door
 exports.unlocksDoor = async () => {
+
+    const deviceId = config.door_lock_id || process.env.DOOR_LOCK_ID;
+    const url = config.ha_door_lock_wh_url || process.env.HA_DOOR_LOCK_URL;
+
     try {
         const doorUnlockDetails = {
-        deviceId: `${config.door_lock_id}`,
-        url: `${config.ha_door_lock_wh_url}`,
+        deviceId,
+        url,
         }
         return await unlockItem('door', doorUnlockDetails);
     } catch (error) {
@@ -40,11 +44,14 @@ exports.unlocksDoor = async () => {
 
 // Specific function to unlock art
 exports.unlocksArt = async () => {
+
+    const deviceId = config.cab_lock_id || process.env.CAB_LOCK_ID;
+    const url = config.ha_art_lock_wh_url || process.env.HA_ART_LOCK_URL;
+
     try {
         const artUnlockDetails = {
-        deviceId: `${config.cab_lock_id}`,
-        url: `${config.ha_art_lock_wh_url}`,
-        }
+
+deviceId, url}
         return await unlockItem('art', artUnlockDetails);
     } catch (error) {
     console.log("error unlocking door:", error);
