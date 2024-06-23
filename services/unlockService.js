@@ -46,7 +46,7 @@ exports.unlocksDoor = async () => {
 exports.unlocksArt = async () => {
 
     const deviceId = config.cab_lock_id || process.env.CAB_LOCK_ID;
-    const url = config.ha_art_lock_wh_url || process.env.HA_ART_LOCK_URL;
+    const url = config.ha_art_lock_wh_url || process.env.HA_ART_LOCK_WH_URL;
 
     try {
         const artUnlockDetails = { deviceId, url };
