@@ -11,11 +11,11 @@ exports.handleStripeWebhook = async (req, res) => {
 
     try {
         event = stripe.webhooks.constructEvent(req.body, sig, endpointSecret);
-        console.log({req_headers: req.headers, event});
+        console.error({req_headers: req.headers, event});
         if (event.type === 'checkout.session.completed') {
-            console.log('checkout session completed log client_reference_id', event.data.object.client_reference_id);
+            console.error('checkout session completed log client_reference_id', event.data.object.client_reference_id);
             const clientReferenceId = event.data.object.client_reference_id;
-            console.log('payment intent succeded log', clientReferenceId);
+            console.error('payment intent succeded log', clientReferenceId);
             if (clientReferenceId === 'Art') {
                 logger.info('Unlocking art...');
                 await unlocksArt();
