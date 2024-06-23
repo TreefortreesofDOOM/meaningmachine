@@ -4,7 +4,7 @@ const { handleStripeWebhook } = require('../services/stripeService');
 const { getArtLockStatus, getDoorLockStatus } = require('../services/lockStatusService'); // Importing lock service functions
 const router = express.Router();
 
-router.post('/webhooks', express.raw({type: 'application/json'}), handleStripeWebhook);
+router.post('webhooks', express.raw({type: 'application/json'}), handleStripeWebhook);
 
 // Route to unlock a door
 router.post('/unlock-door', async (req, res) => {
@@ -45,9 +45,10 @@ router.get('/lock-status/:type', async (req, res) => {
         res.status(500).json({ success: false, message: error.message });
     }
 });
+/*
 // Set your secret key. Remember to switch to your live secret key in production.
 // See your keys here: https://dashboard.stripe.com/apikeys
-const stripe = require('stripe')('sk_test_51HCA8SDtboUa20CyPC9Go5FhUp6hsQoDQ4oxTRipLpBbyWFES4v0Y5KD11n4jMPdsFF6U0LWTUZIXcWVdscVOO9C008sFZdNpw');
+//const stripe = require('stripe')('sk_test_51HCA8SDtboUa20CyPC9Go5FhUp6hsQoDQ4oxTRipLpBbyWFES4v0Y5KD11n4jMPdsFF6U0LWTUZIXcWVdscVOO9C008sFZdNpw');
 
 router.post('/account_session', async (req, res) => {
     try {
@@ -96,6 +97,6 @@ router.post('/account_session', async (req, res) => {
     });
 //#################### DB ROUTES #################################
 
-
+*/
 
 module.exports = router;

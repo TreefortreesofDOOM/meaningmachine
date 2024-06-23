@@ -1,9 +1,9 @@
 const config = require('../config');
-const stripe = require('stripe')(`${config.stripe_api_test_key}`);
+const stripe = require('stripe')(`${config.stripe_api_key}`);
 const logger = require('../utils/logger');
 //const { unlocksArt } = require('./artUnlockService');
 const { unlocksDoor, unlocksArt, unlocksWall } = require('./unlockService');
-const endpointSecret = process.env.endpointSecret;
+const endpointSecret = process.env.STRIPE_WH_SECRET;
 exports.handleStripeWebhook = async (req, res) => {
     const sig = req.headers['stripe-signature'];
 
@@ -13,7 +13,7 @@ exports.handleStripeWebhook = async (req, res) => {
         event = stripe.webhooks.constructEvent(req.body, sig, endpointSecret);
         //console.log('event:', event);
         if (event.type === 'checkout.session.completed') {
-            console.log('checkout seesion completed log client_reference_id', event.data.object.client_reference_id);
+            console.log('checkout session completed log client_reference_id', event.data.object.client_reference_id);
             const clientReferenceId = event.data.object.client_reference_id;
             console.log('payment intent succeded log', clientReferenceId);
             if (clientReferenceId === 'Art') {
@@ -35,10 +35,3 @@ exports.handleStripeWebhook = async (req, res) => {
         res.status(400).send(`Webhook Error: ${err.message}`);
     }
 };
-
-
-
-//checkout.session.async_payment_succeeded
-
-//checkout.session.completed
-
