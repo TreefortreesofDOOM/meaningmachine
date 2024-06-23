@@ -1,5 +1,5 @@
 const config = require('../config');
-const stripe = require('stripe')(`${config.stripe_api_key}`);
+const stripe = require('stripe')(`${process.env.STRIPE_API_KEY}`);
 const logger = require('../utils/logger');
 //const { unlocksArt } = require('./artUnlockService');
 const { unlocksDoor, unlocksArt, unlocksWall } = require('./unlockService');
