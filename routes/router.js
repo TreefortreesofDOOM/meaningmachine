@@ -5,6 +5,11 @@ const { getArtLockStatus, getDoorLockStatus } = require('../services/lockStatusS
 const router = express.Router();
 router.use(express.json());
 
+router.get("/", (request, response, next) => {
+    response.json({ message: "Hey! This is your server response!" });
+    next();
+  });
+  
 router.post('webhooks', express.raw({type: 'application/json'}), handleStripeWebhook);
 
 // Route to unlock a door
