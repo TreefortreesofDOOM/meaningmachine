@@ -29,7 +29,7 @@ console.log("stupid");
 exports.unlocksDoor = async () => {
 
     const deviceId = config.door_lock_id || process.env.DOOR_LOCK_ID;
-    const url = config.ha_door_lock_wh_url || process.env.HA_DOOR_LOCK_URL;
+    const url = process.env.HA_DOOR_LOCK_WH_URL;  
 
     try {
         const doorUnlockDetails = {
