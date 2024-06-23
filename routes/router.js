@@ -3,6 +3,7 @@ const { unlocksDoor, unlocksArt } = require('../services/unlockService');
 const { handleStripeWebhook } = require('../services/stripeService');
 const { getArtLockStatus, getDoorLockStatus } = require('../services/lockStatusService'); // Importing lock service functions
 const router = express.Router();
+router.use(express.json());
 
 router.post('webhooks', express.raw({type: 'application/json'}), handleStripeWebhook);
 
