@@ -9,8 +9,8 @@ router.get("/", (request, response, next) => {
     response.json({ message: "Hey! This is your server response!" });
     next();
   });
-  
-router.post('webhooks', express.raw({type: 'application/json'}), handleStripeWebhook);
+
+router.post('/webhooks', express.raw({type: 'application/json'}), handleStripeWebhook);
 
 // Route to unlock a door
 router.post('/unlock-door', async (req, res) => {
