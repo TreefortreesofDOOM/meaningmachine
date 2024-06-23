@@ -1,5 +1,5 @@
 const config = require('../config');
-const stripe = require('stripe')(`${config.stripe_api_test_key}`);
+const stripe = require('stripe')(`${config.stripe_api_key}`);
 const logger = require('../utils/logger');
 //const { unlocksArt } = require('./artUnlockService');
 const { unlocksDoor, unlocksArt, unlocksWall } = require('./unlockService');
@@ -11,7 +11,7 @@ exports.handleStripeWebhook = async (req, res) => {
 
     try {
         event = stripe.webhooks.constructEvent(req.body, sig, endpointSecret);
-        //console.log('event:', event);
+        console.log({req_headers: req.headers, event});
         if (event.type === 'checkout.session.completed') {
             console.log('checkout session completed log client_reference_id', event.data.object.client_reference_id);
             const clientReferenceId = event.data.object.client_reference_id;
