@@ -3,7 +3,7 @@ const stripe = require('stripe')(`${config.stripe_api_key}`);
 const logger = require('../utils/logger');
 //const { unlocksArt } = require('./artUnlockService');
 const { unlocksDoor, unlocksArt, unlocksWall } = require('./unlockService');
-const endpointSecret = process.env.STRIPE_WH_SECRET;
+const endpointSecret = process.env.ENDPOINT_SECRET;
 exports.handleStripeWebhook = async (req, res) => {
     const sig = req.headers['stripe-signature'];
 

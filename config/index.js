@@ -1,7 +1,7 @@
 const dotenv = require('dotenv');
 dotenv.config();
 module.exports = {
-	endpointSecret: process.env.endpointSecret,
+	endpointSecret: process.env.endpoint_secret,
     port: process.env.PORT,
 	ha_api_key: process.env.HA_API_KEY,
     stripe_api_test_key: process.env.stripe_api_test_key,
