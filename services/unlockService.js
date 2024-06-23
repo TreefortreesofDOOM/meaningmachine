@@ -24,7 +24,7 @@ async function unlockItem(itemType, unlockDetails) {
         throw error; // Rethrowing the error for the caller to handle
     }
 }
-
+console.log("stupid");
 // Specific function to unlock the door
 exports.unlocksDoor = async () => {
 
@@ -49,12 +49,10 @@ exports.unlocksArt = async () => {
     const url = config.ha_art_lock_wh_url || process.env.HA_ART_LOCK_URL;
 
     try {
-        const artUnlockDetails = {
-
-deviceId, url}
+        const artUnlockDetails = { deviceId, url };
         return await unlockItem('art', artUnlockDetails);
     } catch (error) {
-    console.log("error unlocking door:", error);
+        console.log("error unlocking door:", error);
     }
 };
 exports.unlocksWall = async () => {
