@@ -16,4 +16,6 @@ module.exports = {
     servo_id: process.env.servo_id,
     servo_ha_url: process.env.servo_ha_url,
     stripe_secret: process.env.stripe_secret,
+// Meaning Machine Test
+    ENDPOINT_TEST_SECRET: process.env.ENDPOINT_TEST_SECRET,
 };

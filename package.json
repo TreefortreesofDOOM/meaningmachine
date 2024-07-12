@@ -9,19 +9,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@google-cloud/speech": "^6.5.0",
-    "@picovoice/pvrecorder-node": "^1.2.2",
     "axios": "^1.6.8",
+    "body-parser": "^1.20.2",
     "config": "^3.3.11",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "express-async-handler": "^1.2.0",
-    "logger": "^0.0.1",
-    "media-recorder-js": "^2.1.0",
-    "openai": "^4.0.0",
-    "seam": "^0.50.0",
-    "smee-client": "^2.0.1",
-    "stripe": "^14.23.0",
+    "stripe": "^16.2.0",
     "winston": "^3.13.0"
   },
   "devDependencies": {
