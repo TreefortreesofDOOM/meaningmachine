@@ -1,17 +1,20 @@
 const config = require('../config');
-const stripe = require('stripe')(`${process.env.STRIPE_API_KEY}`);
 const logger = require('../utils/logger');
 //const { unlocksArt } = require('./artUnlockService');
 const { unlocksDoor, unlocksArt, unlocksWall } = require('./unlockService');
-const endpointSecret = process.env.ENDPOINT_SECRET;
+//for testing
+const STRIPE_API_TEST_KEY = process.env.STRIPE_API_TEST_KEY;
+const ENDPOINT_TEST_SECRET = process.env.ENDPOINT_TEST_SECRET;
+//for production
+const stripe = require('stripe')(`${process.env.STRIPE_API_KEY}`);
+const ENDPOINT_SECRET = process.env.ENDPOINT_SECRET;
 exports.handleStripeWebhook = async (req, res) => {
     const sig = req.headers['stripe-signature'];
 
     let event;
-    console.error({body_stringified: JSON.stringify(req.body), sig, endpointSecret});
 
     try {
-        event = stripe.webhooks.constructEvent(req.body, sig, endpointSecret);
+        event = stripe.webhooks.constructEvent(req.body, sig, ENDPOINT_SECRET);
         console.error({req_headers: req.headers, event});
         if (event.type === 'checkout.session.completed') {
             console.error('checkout session completed log client_reference_id', event.data.object.client_reference_id);

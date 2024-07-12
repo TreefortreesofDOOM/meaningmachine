@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const axios = require('axios');
 const unlocksDoor = require('./routes/homeassistantwebhook');
 //const lockStatus = require('./routes/test');
-const { port, stripe_api_key, stripe_secret, stripe_wh_secret } = require('../config/index');
+const { port, stripe_api_key, stripe_secret, stripe_api_test_key, endpointSecret } = require('../config/index');
 const stripe = require('stripe')(stripe_api_key);
 
 const app = express();
@@ -18,7 +18,7 @@ app.post('/webhooks', async (req, res) => {
   let event;
 
   try {
-    event = stripe.webhooks.constructEvent(req.body, sig, stripe_secret);
+    event = stripe.webhooks.constructEvent(req.body, sig, endpointSecret);
     // Handle the checkout.session.completed event
     if (event.type === 'payment_intent.succeeded') {
       const session = event.data.object;
