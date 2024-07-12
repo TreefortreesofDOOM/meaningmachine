@@ -8,6 +8,7 @@ async function unlockItem(itemType, unlockDetails) {
         const { deviceId, url } = unlockDetails;
         console.log(unlockDetails);
         console.log(`${deviceId, url}`);
+        
         // Sending a POST request to the webhook endpoint
         const response = await axios.post(url, { device_id: deviceId });
         logger.info(`Response from unlocking ${itemType}:`, response.data);
@@ -24,8 +25,8 @@ async function unlockItem(itemType, unlockDetails) {
         throw error; // Rethrowing the error for the caller to handle
     }
 }
-console.log("stupid");
-// Specific function to unlock the door
+
+// Function to unlock the door
 exports.unlocksDoor = async () => {
 
     const deviceId = config.door_lock_id || process.env.DOOR_LOCK_ID;
@@ -42,7 +43,7 @@ exports.unlocksDoor = async () => {
     }
 };
 
-// Specific function to unlock art
+//  Function to unlock art
 exports.unlocksArt = async () => {
 
     const deviceId = config.cab_lock_id || process.env.CAB_LOCK_ID;
@@ -55,6 +56,7 @@ exports.unlocksArt = async () => {
         console.log("error unlocking door:", error);
     }
 };
+// Function to unlock wall art
 exports.unlocksWall = async () => {
     try {
         const artUnlockDetails = {

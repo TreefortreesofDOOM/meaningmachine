@@ -8,9 +8,6 @@ const stripe = require('stripe')(stripe_api_key);
 
 const app = express();
 
-//TODO:
-  //Set-up mongoDB
-
 // Use body-parser JSON middleware
 app.use(bodyParser.raw({ type: 'application/json' }));
 

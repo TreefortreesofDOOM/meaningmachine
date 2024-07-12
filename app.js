@@ -3,7 +3,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const routes = require('./routes/router');
 const config = require('./config');
-//const speakButton = document.getElementById('speakButton');
 
 const app = express();
 const PORT = config.port || 3000;
