@@ -58,13 +58,14 @@ exports.unlocksArt = async () => {
 };
 // Function to unlock wall art
 exports.unlocksWall = async () => {
+    
+    const deviceId = config.servo_id_id || process.env.SERVO_ID;
+    const url = process.env.SERVO_HA_URL;
+    
     try {
-        const artUnlockDetails = {
-        deviceId: `${config.servo_id}`,
-        url: `${config.servo_ha_url}`,
-        }
+        const artUnlockDetails = { deviceId, url }
         console.log("UnlocksWall function ran");
-        return await unlockItem('art', artUnlockDetails); 
+        return await unlockItem('dragon', artUnlockDetails); 
     } catch (error) {
     console.log("error unlocking wall art:", error);
     }

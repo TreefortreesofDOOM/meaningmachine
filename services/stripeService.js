@@ -26,7 +26,7 @@ exports.handleStripeWebhook = async (req, res) => {
             } else if (clientReferenceId === 'Entry') {
                 logger.info('Unlocking front door...');
                 await unlocksDoor();
-            } else if (clientReferenceId === 'Wall') {
+            } else if (clientReferenceId === 'dragon') {
                 logger.info('Unlocking wall art...');
                 await unlocksWall();
             }
