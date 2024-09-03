@@ -70,3 +70,17 @@ exports.unlocksWall = async () => {
     console.log("error unlocking wall art:", error);
     }
 };
+
+exports.unlocksCeiling = async () => {
+    
+    const deviceId = config.stepper_id_id || process.env.STEPPER_ID;
+    const url = process.env.STEPPER_HA_URL;
+    
+    try {
+        const artUnlockDetails = { deviceId, url }
+        console.log("UnlocksCeiling function ran");
+        return await unlockItem('ceiling', artUnlockDetails); 
+    } catch (error) {
+    console.log("error unlocking ceiling art:", error);
+    }
+};

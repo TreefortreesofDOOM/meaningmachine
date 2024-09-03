@@ -16,6 +16,8 @@ module.exports = {
     stripe_wh2_sec: process.env.stripe_wh2_sec,
     servo_id: process.env.servo_id,
     servo_ha_url: process.env.servo_ha_url,
+    stepper_id: process.env.stepper_id,
+    stepper_ha_url: process.env.stepper_ha_url,
     stripe_secret: process.env.stripe_secret,
 // Meaning Machine Test
     ENDPOINT_TEST_SECRET: process.env.ENDPOINT_TEST_SECRET,

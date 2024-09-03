@@ -4,6 +4,7 @@ const axios = require('axios');
 const unlocksDoor = require('./routes/homeassistantwebhook');
 const { port } = require('../config/index');
 //const lockStatus = require('./routes/test');
+
 //for testing
 const STRIPE_API_TEST_KEY = process.env.STRIPE_API_TEST_KEY;
 const ENDPOINT_TEST_SECRET = process.env.ENDPOINT_TEST_SECRET;

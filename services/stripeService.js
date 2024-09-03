@@ -1,7 +1,7 @@
 const config = require('../config');
 const logger = require('../utils/logger');
 //const { unlocksArt } = require('./artUnlockService');
-const { unlocksDoor, unlocksArt, unlocksWall } = require('./unlockService');
+const { unlocksDoor, unlocksArt, unlocksWall, unlocksCeiling } = require('./unlockService');
 //for testing
 const STRIPE_API_TEST_KEY = process.env.STRIPE_API_TEST_KEY;
 const ENDPOINT_TEST_SECRET = process.env.ENDPOINT_TEST_SECRET;
@@ -29,6 +29,9 @@ exports.handleStripeWebhook = async (req, res) => {
             } else if (clientReferenceId === 'dragon') {
                 logger.info('Unlocking wall art...');
                 await unlocksWall();
+            } else if (clientReferenceId === 'ceiling') {
+                logger.info('Unlocking ceiling art...');
+                await unlocksCeiling();
             }
         } else {
             logger.info('Unhandled event. This stripe event is not checkout.session.completed');
